@@ -1,0 +1,115 @@
+@font-face {
+    font-family: "SinkinSans_Reg";
+    src: url('./fonts/SinkinSans-400Regular.otf');
+}
+
+@font-face {
+    font-family: "SinkinSans_Bold";
+    src: url('./fonts/SinkinSans-600SemiBold.otf');
+}
+
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    min-height: 100vh;
+    background-color: #393E46;
+}
+
+.nav_wrap {
+    display: flex;
+    align-items: center;
+    height: 100px;
+    background-color: #222831;
+    color: #EC994B;
+    border-bottom: 3px solid #D65A31;
+}
+
+.page_title {
+    margin: auto;
+    font-family: 'SinkinSans_Bold', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.created_box {
+    margin-right: 10%;
+    font-family: 'SinkinSans_Reg', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 85%;
+    padding: 5px;
+}
+
+.created_box > a > img {
+    height: 75px;
+}
+
+main {
+    padding: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+form {
+    display: grid;
+    width: 450px;
+    gap: 20px;
+    color: #D65A31;
+    font-family: 'SinkinSans_Bold', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 16px;
+}
+
+form > div > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 20px;
+}
+
+.form_text {
+    font-family: 'SinkinSans_Reg', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 12px;
+}
+
+.form_item {
+    width: 100%;
+    height: 25px;
+    border-style: none;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.form_item:focus {
+    outline: 3px solid #D65A31;
+}
+
+.submit_box {
+    gap: 25px;
+}
+
+.submit_box > input {
+    width: 250px;
+    height: 35px;
+    font-family: 'SinkinSans_Bold', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 18px;
+    align-self: center;
+    background-color: #EEEEEE;
+    color: #D65A31;
+    border-style: none;
+}
+
+.submit_box > input:hover {
+    background-color: #222831;
+}
+
+.submit_box > span {
+    align-self: center;
+}
+
+.error {
+    color: red;
+}
