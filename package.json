@@ -28,6 +28,6 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
-    "dom_gen_cosbert": "file:../../NPM_Packages/dom_gen_cosbert"
+    "dom_gen_cosbert": "^1.0.0"
   }
 }
