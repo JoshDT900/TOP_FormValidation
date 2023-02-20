@@ -1,11 +1,11 @@
 @font-face {
     font-family: "SinkinSans_Reg";
-    src: url('./fonts/SinkinSans-400Regular.otf');
+    src: url('./font/SinkinSans-400Regular.otf');
 }
 
 @font-face {
     font-family: "SinkinSans_Bold";
-    src: url('./fonts/SinkinSans-600SemiBold.otf');
+    src: url('./font/SinkinSans-600SemiBold.otf');
 }
 
 * {
