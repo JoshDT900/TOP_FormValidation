@@ -73,6 +73,7 @@ form > div > div {
 .form_text {
     font-family: 'SinkinSans_Reg', 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-size: 12px;
+    text-align: center;
 }
 
 .form_item {

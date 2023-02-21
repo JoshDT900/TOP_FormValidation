@@ -57,6 +57,7 @@ let formEle = (ele) => {
 
     formHead();
     formEmail();
+    formLocation();
 
     return;
 }
@@ -102,6 +103,45 @@ let formEmail = () => {
         emailBox.appendChild(newEle);
     }
         
+    return;
+}
+
+let formLocation = () => {
+    let locationWrap = document.querySelector(".location_wrap");
+
+    let eleArr = ["country_box", "zipcode_box"]
+    for (let i in eleArr){
+        let newEle = domEleGen.makeEle("div", "", ["class", eleArr[i]])
+        locationWrap.appendChild(newEle);
+    }
+
+    formLocCountry();
+
+    return;
+}
+
+let formLocCountry = () => {
+    let countryBox = document.querySelector(".country_box");
+
+    let labelEle = domEleGen.makeEle("label", "Select Your Country", ["for", "country"]);
+    countryBox.appendChild(labelEle);
+
+    let selectArr = [["id", "country"], ["name", "country"], ["class", "form_item"], ["requred", ""]]
+    let selectEle = domEleGen.makeEle("select", "", selectArr)
+    countryBox.appendChild(selectEle);
+
+    let countryArr = ["Christmas Island", "Finland", "France", "United States", "Yemen", "Zambia", "Zimbabwe"]
+    for (let i in countryArr){
+        let newOption = domEleGen.makeEle("option", countryArr[i], ["vlaue", countryArr[i]]);
+        selectEle.appendChild(newOption);
+    }
+
+    return;
+}
+
+let formLocZip = () => {
+    let countryBox = document.querySelector(".country_box");
+
     return;
 }
 
