@@ -6,13 +6,13 @@ let renderPage = () => {
     let bodyEle = document.querySelector("body");
 
     navBar(bodyEle);
-    // formEle(bodyEle);
+    formEle(bodyEle);
 
-    return bodyEle;
+    return;
 }
 
 let navBar = (ele) => {
-    let mainEle = ele;
+    let bodyEle = ele;
 
     let navWrap = domEleGen.makeEle("nav", "", ["class", "nav_wrap"]);
     
@@ -30,12 +30,79 @@ let navBar = (ele) => {
 
     let gitLink = "https://github.com/JoshDT900";
     let creditLink = domEleGen.makeEle("a", "", [["href", gitLink], ["target", "_blank"]]);
-    let gitImgEle = domEleGen.makeEle("img", "", [["src", assetsMod.gitImg], ["alt", "git hub cat logo"]]);
-
-    creditLink.appendChild(gitImgEle);
     creditBox.appendChild(creditLink);    
     
-    return mainEle.appendChild(navWrap);
+    let gitImgEle = domEleGen.makeEle("img", "", [["src", assetsMod.gitImg], ["alt", "git hub cat logo"]]);
+    creditLink.appendChild(gitImgEle);
+
+    
+    return bodyEle.appendChild(navWrap);
+}
+
+let formEle = (ele) => {
+    let bodyEle = ele;
+
+    let mainEle = domEleGen.makeEle("main");
+    bodyEle.appendChild(mainEle);
+
+    let formEle = domEleGen.makeEle("form", "", ["novalidate", ""]);
+    mainEle.appendChild(formEle);
+
+    let formWraps = ["form_head_wrap", "email_wrap", "location_wrap", "password_wrap", "submit_wrap"];
+
+    for (let i in formWraps){
+        let newDiv = domEleGen.makeEle("div", "", ["class", `${formWraps[i]}`]);
+        formEle.appendChild(newDiv);
+    }
+
+    formHead();
+    formEmail();
+
+    return;
+}
+
+let formHead = () => {
+    let headWrap = document.querySelector(".form_head_wrap");
+
+    let formText = domEleGen.makeEle("div", "", ["class", "form_text"]);
+    headWrap.appendChild(formText);
+
+    let spanEle = domEleGen.makeEle("span", 'Fields marked with a "*" are required', ["class", "required_text"]);
+    formText.appendChild(spanEle);
+
+    return;
+}
+
+let formEmail = () => {
+    let emailWrap = document.querySelector(".email_wrap");
+
+    let emailBox = domEleGen.makeEle("div", "", ["class", "email_box"]);
+    emailWrap.appendChild(emailBox);
+
+    let eleObj = [
+        {
+            eleType: "label",
+            eleAtr: ["for", "email"],
+            eleText: "Email Address *"
+        },
+        {
+            eleType: "input",
+            eleAtr: [["type", "email"], ["id", "email"], ["name", "email"], ["class", "form_item"], ["required", ""]],
+            eleText: ""
+        },
+        {
+            eleType: "span",
+            eleAtr: ["class", "error"],
+            eleText: ""
+        }
+    ]
+
+    for (let i in eleObj){
+        let newEle = domEleGen.makeEle(eleObj[i].eleType, eleObj[i].eleText, eleObj[i].eleAtr);
+        emailBox.appendChild(newEle);
+    }
+        
+    return;
 }
 
 (() => {
