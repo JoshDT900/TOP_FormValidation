@@ -58,6 +58,8 @@ let formEle = (ele) => {
     formHead();
     formEmail();
     formLocation();
+    formPassword();
+    submitBox();
 
     return;
 }
@@ -147,7 +149,7 @@ let formLocZip = () => {
     let eleText = ["Zipcode *", "", ""]
     let eleAtrib = [
         ["for", "zipcode"],
-        [["type", "text"], ["name", "zipcode"], ["id", "zipcode"], ["class", "form_item"]],
+        [["type", "text"], ["name", "zipcode"], ["id", "zipcode"], ["class", "form_item"], ["required", ""]],
         ["class", "error"]
     ]
 
@@ -157,6 +159,76 @@ let formLocZip = () => {
     }
 
     return;
+}
+
+let formPassword = () => {
+    let passWrap = document.querySelector(".password_wrap");
+
+    let eleClassArr = ["pass_box", "conf_pass_box"];
+    for (let i in eleClassArr){
+        let newDiv = domEleGen.makeEle("div", "", ["class", eleClassArr[i]]);
+        passWrap.appendChild(newDiv);
+    }
+
+    formPassBox();
+    formPassConf();
+
+    return;
+}
+
+let formPassBox = () => {
+    let passBox = document.querySelector(".pass_box")
+
+    let eleArr = ["label", "input", "span"];
+    let eleText = ["Create a password *", "", ""]
+    let eleAtrib = [
+        ["for", "password"],
+        [["type", "text"], ["name", "password"], ["id", "password"], ["class", "form_item"], ["required", ""]],
+        ["class", "error"]
+    ]
+
+    for (let i in eleArr){
+        let newEle = domEleGen.makeEle(eleArr[i], eleText[i], eleAtrib[i]);
+        passBox.appendChild(newEle);
+    }
+
+    return;
+}
+
+let formPassConf = () => {
+    let passConf = document.querySelector(".conf_pass_box");
+
+    let eleArr = ["label", "input", "span"];
+    let eleText = ["Confirm your password *", "", ""]
+    let eleAtrib = [
+        ["for", "pass_confirm"],
+        [["type", "text"], ["name", "pass_confirm"], ["id", "pass_confirm"], ["class", "form_item"], ["required", ""]],
+        ["class", "error"]
+    ]
+
+    for (let i in eleArr){
+        let newEle = domEleGen.makeEle(eleArr[i], eleText[i], eleAtrib[i]);
+        passConf.appendChild(newEle);
+    }
+
+    return;
+}
+
+let submitBox = () => {
+    let subWrap = document.querySelector(".submit_wrap")
+    
+    let subBox = domEleGen.makeEle("div", "", ["class", "submit_box"]);
+    subWrap.appendChild(subBox);
+
+    let eleArr = ["input", "span"]
+    let eleAtrib = [[["type", "submit"], ["value", "Submit"]], ["class", "error"]];
+
+    for (let i in eleArr){
+        let newEle = domEleGen.makeEle(eleArr[i], "", eleAtrib[i]);
+        subBox.appendChild(newEle);
+    }
+
+    return
 }
 
 (() => {
