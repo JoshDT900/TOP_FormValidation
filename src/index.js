@@ -116,6 +116,7 @@ let formLocation = () => {
     }
 
     formLocCountry();
+    formLocZip();
 
     return;
 }
@@ -140,7 +141,20 @@ let formLocCountry = () => {
 }
 
 let formLocZip = () => {
-    let countryBox = document.querySelector(".country_box");
+    let zipBox = document.querySelector(".zipcode_box");
+
+    let eleArr = ["label", "input", "span"];
+    let eleText = ["Zipcode *", "", ""]
+    let eleAtrib = [
+        ["for", "zipcode"],
+        [["type", "text"], ["name", "zipcode"], ["id", "zipcode"], ["class", "form_item"]],
+        ["class", "error"]
+    ]
+
+    for (let i in eleArr){
+        let newEle = domEleGen.makeEle(eleArr[i], eleText[i], eleAtrib[i]);
+        zipBox.appendChild(newEle);
+    }
 
     return;
 }
