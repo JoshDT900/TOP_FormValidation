@@ -1,6 +1,7 @@
 import css from "./style.css"
 import { domEleGen } from "dom_gen_cosbert";
 import { assetsMod } from "./assets.js";
+import { emailVerify } from "./pagecontrol";
 
 let renderPage = () => {
     let bodyEle = document.querySelector("body");
@@ -98,7 +99,7 @@ let formEmail = () => {
             eleAtr: ["class", "error"],
             eleText: ""
         }
-    ]
+    ];
 
     for (let i in eleObj){
         let newEle = domEleGen.makeEle(eleObj[i].eleType, eleObj[i].eleText, eleObj[i].eleAtr);
@@ -111,9 +112,9 @@ let formEmail = () => {
 let formLocation = () => {
     let locationWrap = document.querySelector(".location_wrap");
 
-    let eleArr = ["country_box", "zipcode_box"]
+    let eleArr = ["country_box", "zipcode_box"];
     for (let i in eleArr){
-        let newEle = domEleGen.makeEle("div", "", ["class", eleArr[i]])
+        let newEle = domEleGen.makeEle("div", "", ["class", eleArr[i]]);
         locationWrap.appendChild(newEle);
     }
 
@@ -129,8 +130,8 @@ let formLocCountry = () => {
     let labelEle = domEleGen.makeEle("label", "Select Your Country", ["for", "country"]);
     countryBox.appendChild(labelEle);
 
-    let selectArr = [["id", "country"], ["name", "country"], ["class", "form_item"], ["requred", ""]]
-    let selectEle = domEleGen.makeEle("select", "", selectArr)
+    let selectArr = [["id", "country"], ["name", "country"], ["class", "form_item"], ["requred", ""]];
+    let selectEle = domEleGen.makeEle("select", "", selectArr);
     countryBox.appendChild(selectEle);
 
     let countryArr = ["Christmas Island", "Finland", "France", "United States", "Yemen", "Zambia", "Zimbabwe"]
@@ -146,12 +147,12 @@ let formLocZip = () => {
     let zipBox = document.querySelector(".zipcode_box");
 
     let eleArr = ["label", "input", "span"];
-    let eleText = ["Zipcode *", "", ""]
+    let eleText = ["Zipcode *", "", ""];
     let eleAtrib = [
         ["for", "zipcode"],
         [["type", "text"], ["name", "zipcode"], ["id", "zipcode"], ["class", "form_item"], ["required", ""]],
         ["class", "error"]
-    ]
+    ];
 
     for (let i in eleArr){
         let newEle = domEleGen.makeEle(eleArr[i], eleText[i], eleAtrib[i]);
@@ -177,15 +178,15 @@ let formPassword = () => {
 }
 
 let formPassBox = () => {
-    let passBox = document.querySelector(".pass_box")
+    let passBox = document.querySelector(".pass_box");
 
     let eleArr = ["label", "input", "span"];
-    let eleText = ["Create a password *", "", ""]
+    let eleText = ["Create a password *", "", ""];
     let eleAtrib = [
         ["for", "password"],
         [["type", "text"], ["name", "password"], ["id", "password"], ["class", "form_item"], ["required", ""]],
         ["class", "error"]
-    ]
+    ];
 
     for (let i in eleArr){
         let newEle = domEleGen.makeEle(eleArr[i], eleText[i], eleAtrib[i]);
@@ -199,12 +200,12 @@ let formPassConf = () => {
     let passConf = document.querySelector(".conf_pass_box");
 
     let eleArr = ["label", "input", "span"];
-    let eleText = ["Confirm your password *", "", ""]
+    let eleText = ["Confirm your password *", "", ""];
     let eleAtrib = [
         ["for", "pass_confirm"],
         [["type", "text"], ["name", "pass_confirm"], ["id", "pass_confirm"], ["class", "form_item"], ["required", ""]],
         ["class", "error"]
-    ]
+    ];
 
     for (let i in eleArr){
         let newEle = domEleGen.makeEle(eleArr[i], eleText[i], eleAtrib[i]);
@@ -215,12 +216,12 @@ let formPassConf = () => {
 }
 
 let submitBox = () => {
-    let subWrap = document.querySelector(".submit_wrap")
+    let subWrap = document.querySelector(".submit_wrap");
     
     let subBox = domEleGen.makeEle("div", "", ["class", "submit_box"]);
     subWrap.appendChild(subBox);
 
-    let eleArr = ["input", "span"]
+    let eleArr = ["input", "span"];
     let eleAtrib = [[["type", "submit"], ["value", "Submit"]], ["class", "error"]];
 
     for (let i in eleArr){
@@ -228,9 +229,20 @@ let submitBox = () => {
         subBox.appendChild(newEle);
     }
 
-    return
+    return;
+}
+
+let emailEvent = () => {
+    let emailInput = document.querySelector('input[name="email"]');
+
+    emailInput.addEventListener("input", (event) => {
+        emailVerify(event);
+    });
+
+    return;
 }
 
 (() => {
     renderPage();
+    emailEvent();
 })();
