@@ -113,4 +113,18 @@ form > div > div {
 
 .error {
     color: red;
+    font-size: 12px;
 }
+
+input:valid {
+    outline: 3px solid green;
+}
+
+input[type=submit]{
+    outline: 2px solid #D65A31;
+}
+
+input:invalid:focus {
+    outline: 3px solid red;
+}
+

@@ -1,7 +1,7 @@
 import css from "./style.css"
 import { domEleGen } from "dom_gen_cosbert";
 import { assetsMod } from "./assets.js";
-import { emailVerify } from "./pagecontrol";
+import { emailVerify, formHandle } from "./pagecontrol";
 
 let renderPage = () => {
     let bodyEle = document.querySelector("body");
@@ -62,6 +62,8 @@ let formEle = (ele) => {
     formPassword();
     submitBox();
 
+    formEle.addEventListener("submit", formHandle);
+
     return;
 }
 
@@ -91,12 +93,12 @@ let formEmail = () => {
         },
         {
             eleType: "input",
-            eleAtr: [["type", "email"], ["id", "email"], ["name", "email"], ["class", "form_item"], ["required", ""]],
+            eleAtr: [["type", "email"], ["id", "email"], ["name", "email"], ["class", "form_item"], ["minlength", "8"], ["required", ""]],
             eleText: ""
         },
         {
             eleType: "span",
-            eleAtr: ["class", "error"],
+            eleAtr: [["class", "error"], ["aria-live", "polite"]],
             eleText: ""
         }
     ];
@@ -151,7 +153,7 @@ let formLocZip = () => {
     let eleAtrib = [
         ["for", "zipcode"],
         [["type", "text"], ["name", "zipcode"], ["id", "zipcode"], ["class", "form_item"], ["required", ""]],
-        ["class", "error"]
+        [["class", "error"], ["aria-live", "polite"]]
     ];
 
     for (let i in eleArr){
@@ -185,7 +187,7 @@ let formPassBox = () => {
     let eleAtrib = [
         ["for", "password"],
         [["type", "text"], ["name", "password"], ["id", "password"], ["class", "form_item"], ["required", ""]],
-        ["class", "error"]
+        [["class", "error"], ["aria-live", "polite"]]
     ];
 
     for (let i in eleArr){
@@ -204,7 +206,7 @@ let formPassConf = () => {
     let eleAtrib = [
         ["for", "pass_confirm"],
         [["type", "text"], ["name", "pass_confirm"], ["id", "pass_confirm"], ["class", "form_item"], ["required", ""]],
-        ["class", "error"]
+        [["class", "error"], ["aria-live", "polite"]]
     ];
 
     for (let i in eleArr){
@@ -222,7 +224,7 @@ let submitBox = () => {
     subWrap.appendChild(subBox);
 
     let eleArr = ["input", "span"];
-    let eleAtrib = [[["type", "submit"], ["value", "Submit"]], ["class", "error"]];
+    let eleAtrib = [[["type", "submit"], ["value", "Submit"]], [["class", "error"], ["aria-live", "polite"]]];
 
     for (let i in eleArr){
         let newEle = domEleGen.makeEle(eleArr[i], "", eleAtrib[i]);
